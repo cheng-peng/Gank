@@ -23,6 +23,7 @@ import com.cxp.gank.R
  * 修改备注：
  */
 
+//AppCompatActivity.replaceFragmentInActivity  扩展AppCompatActivity的方法
 fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, @IdRes frameId: Int, tag: String) {
     supportFragmentManager.transact {
         replace(frameId, fragment, tag)
@@ -48,6 +49,10 @@ fun AppCompatActivity.setupToolBar(toolbar: Toolbar, action: ActionBar.() -> Uni
     }
 }
 
+/**
+ * inline  内联函数，优化性能
+ * action: FragmentTransaction.() -> Unit 系统函数（调用方法）
+ */
 private inline fun FragmentManager.transact(action: FragmentTransaction.() -> Unit) {
     beginTransaction().apply {
         setCustomAnimations(
