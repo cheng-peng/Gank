@@ -25,11 +25,6 @@ import kotlinx.android.synthetic.main.fragment_gank_filter.*
  */
 class GankFilterFragment : Fragment(), GankFilterContract.View {
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = GankFilterFragment()
-    }
-
     override lateinit var presenter: GankFilterContract.Presenter
 
     private lateinit var gankFilterAdapter: GankFilterAdapter
@@ -108,5 +103,11 @@ class GankFilterFragment : Fragment(), GankFilterContract.View {
             swipe_refresh_layout?.isRefreshing = false
         }
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = GankFilterFragment()
+    }
+
 
 }

@@ -14,7 +14,7 @@ import java.util.*
  */
 
 //格式化日期
-fun Date.getDateSting(): String {
+fun Date.getDateString(): String {
     val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.CHINA)
     return sdf.format(this)
 }

@@ -3,7 +3,7 @@ package com.cxp.gank.ui.adapter
 import android.view.View
 import com.cxp.gank.R
 import com.cxp.gank.data.Gank
-import com.cxp.gank.ext.getDateSting
+import com.cxp.gank.ext.getDateString
 import com.cxp.gank.ui.common.WebActivity
 import kotlinx.android.synthetic.main.recycler_item_gank_data.view.*
 
@@ -28,7 +28,7 @@ class GankFilterAdapter(
     override fun render(itemView: View, data: Gank) {
         itemView.tv_desc.text = data.desc
         itemView.tv_who.text = data.who
-        itemView.tv_date.text = data.publishedAt.getDateSting()
+        itemView.tv_date.text = data.publishedAt.getDateString()
         itemView.item_wrapper.tag = data
         itemView.item_wrapper.setOnClickListener(onClickListener)
     }
