@@ -3,11 +3,13 @@ package com.cxp.gank
 import android.content.Context
 import com.cxp.gank.data.source.GankDailyRepository
 import com.cxp.gank.data.source.GankFilterRepository
+import com.cxp.gank.data.source.SearchRepository
 import com.cxp.gank.data.source.local.GankDailyLocalSource
 import com.cxp.gank.data.source.local.GankDatabase
 import com.cxp.gank.data.source.local.GankFilterLocalSource
 import com.cxp.gank.data.source.remote.GankDailyRemoteSource
 import com.cxp.gank.data.source.remote.GankFilterRemoteSource
+import com.cxp.gank.data.source.remote.SearchRemoteSource
 import com.cxp.gank.util.AppExecutors
 
 /**
@@ -36,5 +38,7 @@ object Injection {
             GankFilterLocalSource.getInstance()
         )
     }
-
+    fun provideSearchRepository(): SearchRepository {
+        return SearchRepository(SearchRemoteSource.getInstance())
+    }
 }

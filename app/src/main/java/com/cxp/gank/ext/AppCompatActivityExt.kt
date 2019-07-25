@@ -1,9 +1,11 @@
 package com.cxp.gank.ext
 
+import android.app.Activity
 import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.IdRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +33,14 @@ fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, @IdRes frame
 
 }
 
+fun AppCompatActivity.hideKeyboard() {
+    val view = currentFocus
+    if (view != null) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+    }
+}
+
 fun AppCompatActivity.transparentStatusBar() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -48,8 +58,6 @@ fun AppCompatActivity.setupToolBar(toolbar: Toolbar, action: ActionBar.() -> Uni
         action()
     }
 }
-
-
 
 /**
  * inline  内联函数，优化性能

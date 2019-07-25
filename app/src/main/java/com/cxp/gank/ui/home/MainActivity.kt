@@ -14,10 +14,13 @@ import com.cxp.gank.R
 import com.cxp.gank.ext.replaceFragmentInActivity
 import com.cxp.gank.ext.setupToolBar
 import com.cxp.gank.ext.transparentStatusBar
+import com.cxp.gank.ui.home.about.AboutFragment
 import com.cxp.gank.ui.home.daily.GankDailyFragment
 import com.cxp.gank.ui.home.daily.GankDailyPresenter
 import com.cxp.gank.ui.home.filter.GankFilterFragment
 import com.cxp.gank.ui.home.filter.GankFilterPresenter
+import com.cxp.gank.ui.home.filter.WelfareFragment
+import com.cxp.gank.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_app_bar.*
 import kotlinx.android.synthetic.main.nav_header.view.*
@@ -92,22 +95,22 @@ class MainActivity : AppCompatActivity() {
 //                    filterChange(GankFilterType.VIDEO)
 //                }
                 R.id.menu_welfare -> {
-//                    val welfareFragment = supportFragmentManager.findFragmentByTag(GankFilterType.WELFARE)
-//                    if (null == welfareFragment) {
-//                        WelfareFragment.newInstance().also {
-//                            gankFilterPresenter.gankFilterView = it
-//                            it.presenter = gankFilterPresenter
-//                            gankFilterPresenter.currentFiltering = GankFilterType.WELFARE
-//                            replaceFragmentInActivity(it, R.id.contentFrame, GankFilterType.WELFARE)
-//                        }
-//                    }
+                    val welfareFragment = supportFragmentManager.findFragmentByTag(GankFilterType.WELFARE)
+                    if (null == welfareFragment) {
+                        WelfareFragment.newInstance().also {
+                            gankFilterPresenter.gankFilterView = it
+                            it.presenter = gankFilterPresenter
+                            gankFilterPresenter.currentFiltering = GankFilterType.WELFARE
+                            replaceFragmentInActivity(it, R.id.contentFrame, GankFilterType.WELFARE)
+                        }
+                    }
                 }
                 R.id.menu_about -> {
-//                    if (null == supportFragmentManager.findFragmentByTag(AboutFragment.TAG)) {
-//                        AboutFragment.newInstance().also {
-//                            replaceFragmentInActivity(it, R.id.contentFrame, AboutFragment.TAG)
-//                        }
-//                    }
+                    if (null == supportFragmentManager.findFragmentByTag(AboutFragment.TAG)) {
+                        AboutFragment.newInstance().also {
+                            replaceFragmentInActivity(it, R.id.contentFrame, AboutFragment.TAG)
+                        }
+                    }
                 }
             }
             true
@@ -148,7 +151,7 @@ class MainActivity : AppCompatActivity() {
 
         when (item?.itemId) {
             R.id.search -> {
-//                SearchActivity.start(this)
+                SearchActivity.start(this)
                 return true
             }
             android.R.id.home -> {
